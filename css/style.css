@@ -1,0 +1,232 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: #333333;
+}
+
+img {
+    border: none;
+}
+
+a {
+    color: #0A6380;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+#wrap {
+    margin: 0 auto;
+    width: 800px;
+}
+
+#header {
+    height: 100px;
+    padding-bottom: 10px;
+}
+
+h2{
+    padding-bottom: 5px;
+}
+
+#menu li>a{
+    background-color: rgb(51, 100, 145);
+    color: rgb(255, 255, 255);
+    padding: 4px;
+    display: block;
+    text-decoration: none;
+    min-width: 152px;
+  }
+  #menu li>a:hover{
+    color: #000;
+    background-color: #f0ecdd;
+
+  }
+  
+  #menu>li{
+    float: left;
+    text-align:left;
+    display: inline;
+  }
+  #menu>li>ul{
+    display: none;
+    position: absolute
+  }
+  #menu>li:hover>ul {
+    display:block;
+  }
+
+
+.banner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 75px;
+    width: 275px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.icon-align {
+    padding: 10px;
+    background-color: rgb(236, 220, 220);
+    border-radius: 20px;
+}
+
+
+#edit {
+    padding: 25px;
+    width: 800px;
+    height: 612px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    border-style: groove;
+    box-sizing: border-box;
+}
+
+#ht {
+    padding: 25px;
+    width: 500px;
+    height: 612px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    border-style: groove;
+}
+
+#colorFont {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#colorFontBg {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#colorButtonFont {
+    color: #0A6380;
+    padding: 5.5px;
+    border-color: #0A6380;
+    border: 2px;
+    background-color: rgb(236, 220, 220);
+    border-radius: 10px;
+}
+
+#colorButtonFontBg {
+    color: #0A6380;
+    padding: 5.5px;
+    border-color: #0A6380;
+    border: 2px;
+    background-color: rgb(236, 220, 220);
+    border-radius: 10px;
+}
+
+.fuente1 {
+    font-family: "Mystery Quest", cursive;
+}
+
+
+
+
+#menu2{
+
+	
+    padding: 4px;
+    display: block;
+    text-decoration: none;
+    min-width: 145px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+
+
+}
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+    #wrap {
+        margin: auto;
+        width: 80%;
+    }
+    #content {
+        margin: auto;
+        width: 100%;
+    }
+    .content2{
+        margin: auto;
+        width: 80%;
+    }
+    form{
+        margin: auto;
+        width: 100%;
+    }
+    #edit {
+        margin: auto;
+        width: 100%;
+    }
+    #menu li>a{
+        min-width: 132px;
+    }
+    #menu2 li>a{
+        padding: 4px;
+        display: block;
+        text-decoration: none;
+        min-width: 100px;
+    }
+}
+@media only screen and (max-width: 889px) {
+    #menu li>a{
+        min-width: 127px;
+      }
+
+}
+@media only screen and (max-width: 800px) {
+      #content{
+        display: none !important;
+    }
+    #menu li>a{
+        min-width: 127px;
+      }
+
+}
+
+
+@media only screen and (max-width: 675px) {
+    #menu li>a{
+        padding: 4px;
+        display: block;
+        text-decoration: none;
+        min-width: 85px;
+      }
+
+}
+@media only screen and (max-width: 540px) {
+    #menu li>a{
+        padding: 4px;
+        display: block;
+        text-decoration: none;
+        min-width: 70px;
+      }
+      #content{
+        display: none !important;
+    }
+
+}
+
+

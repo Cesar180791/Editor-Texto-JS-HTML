@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+
+    <!--cdn font awasome for icons--->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!--cdn font awasome for icons--->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <p class="centrado">
+                <img src="../img/banner.gif" alt="banner" class="banner">
+                <hr>
+            </p>
+        </div>
+
+            <h2><a id="DocumentName" href="#">Nuevo Documento</a></h2>
+
+            <nav>
+                <ul id="menu">
+                  <li><a href="">Archivo</a>
+                <ul>
+                    <li>
+                        <a onclick="NewDoc();" href="#" id=""><i id="icon-hover" class="fas fa-plus"> Nuevo documento</i></a>
+                        <a title="Guardar" onclick="DataCapture();" href="#" id="save"><i id="icon-hover"class="fas fa-save"> Guardar</i></a>
+                        <a title="Codigo html" onclick="inHTML()" href="#"><i id="icon-hover"class="fas fa-code"> Codigo html</i></a>
+                        <a title="Visualizar texto en html" id="ver" onclick="htmlOEditor(event)" value="html" href="#"><i id="icon-hover" class="fas fa-eye"> Visualizar texto en html</i></a>
+                        <a title="Descargar documento" onclick="DownloadFile();" href="#" id=""><i id="icon-hover" class="fas fa-file-download"> Descargar documento</i></a>
+                        <a title="Importar documento" onclick="UploadFile();" href="#" id=""><i id="icon-hover" class="fas fa-file-upload"> Importar documento</i></a>
+                        <a href="">Salir</a>
+                    </li>
+               </ul>
+                </li>
+                  <li><a href="">Editar  </a>
+                    <ul>
+                        <li>
+                            <a title="Rehacer" onclick="Undo();" href="#"><i id="icon-hover" class="fas fa-undo"> Rehacer texto</i></a>
+                            <a title="Hacer" onclick="Redo();" href="#"><i id="icon-hover" class="fas fa-redo"> Hacer texto</i></a>
+                            <a title="Cortar"onclick="Cut();" href="#"><i id="icon-hover" class="fas fa-cut"> Cortar texto</i></a>
+                            <a title="Copiar"onclick="Copy();" href="#"><i id="icon-hover" class="fas fa-copy"> Copiar texto</i></a>
+                            <a title="Pegar"onclick="Paste();" href="#"><i id="icon-hover" class="fas fa-paste"> pegar texto</i></a>
+                        </li>
+                     
+                    </ul>  
+                  </li>
+                  <li><a href="">Formato</a>
+                    <ul>
+                        <li>
+                            <a title="Texto en negrita" onclick="formato('bold');" href="#"><i id="icon-hover" class="fas fa-bold"> Texto en negrita</i></a>
+                            <a title="Texto en cursiva" onclick="Italic();" href="#"><i id="icon-hover" class="fas fa-italic"> Texto en cursiva</i></a>
+                            <a title="Subrayar" onclick="UnderLine();" href="#"><i id="icon-hover" class="fas fa-underline"> Subrayar</i></a>
+                            <a title="Tachar texto" onclick="StrikeThrough();" href="#"><i id="icon-hover"class="fas fa-strikethrough"> Tachar texto</i></a>
+                            <a title="Remover formato" onclick="Unformat();" href="#"><i id="icon-hover" class="fa fa-remove-format"> Remover formato</i></a>
+                            <a title="Crear hipervinculo" onclick="Link();" href="#" id=""><i id="icon-hover" class="fas fa-link"> Crear hipervinculo</i></a>
+                            <a title="Quitar hipervinculo" onclick="unLink();" href="#" id=""><i id="icon-hover" class="fas fa-unlink"> Quitar hipervinculo</i></a>
+
+                        </li>
+                       
+      
+                      </ul>  
+                </li>
+                  <li><a href="">Parrafos</a>
+                    <ul>
+                        <li>
+                            <a title="Alternar lista con viñetas" onclick="insertUnordered();" href="#"><i id="icon-hover" class="fas fa-list-ul"> Alternar lista con viñetas</i></a>
+                            <a title="Alternar lista numerada" onclick="insertOrdered();" href="#"><i id="icon-hover" class="fas fa-list-ol"> Alternar lista numerada</i></a>
+                            <a title="Alinear a la izquierda"  onclick="AlignLeft();" href="#"><i id="icon-hover" class="fas fa-align-left"> Alinear a la Izquierda</i></a>
+                            <a title="Centrar horizontalmente" onclick="AlignCenter();" href="#"><i id="icon-hover" class="fas fa-align-center"> Centrar horizontalmente</i></a>
+                            <a title="Alinear a la derecha" onclick="AlignRight();" href="#"><i id="icon-hover" class="fas fa-align-right"> ALinear a la derecha</i></a>
+                            <a title="Justificar"onclick="Justify();" href="#"><i id="icon-hover" class="fa fa-align-justify"> Justificar </i></a>
+                         
+                        </li>
+                      </ul>
+                    
+                </li>
+                  <li><a href="">Insertar</a>
+                    <ul>
+                        <li>
+                            <a title="Insertar tabla" href="#"><i id="icon-hover" class="icon-table  fas fa-table"> Insertar tabla</i></a>
+                            <a title="Insertar imagen"onclick="insertImage()" href="#"><i id="icon-hover" class="icon-table fas fa-images"> Insertar imagen</i></a>
+
+                        </li>
+                        
+                    </ul>
+                </li>
+    
+                </ul>
+              </nav>
+
+            <section id="menu2">
+
+                <select class="icon-align" id="doc" name="doc" onchange="ShowSelected();">
+                        <option value="0">Archivos Guardados</option>
+                </select>
+
+                <select class="icon-align" id="font" name="m" onchange="ChangeFont();">
+                        <option value="0" style="font-family:'Times New Roman'">Times New Roman</option>
+                        <option value="1" style="font-family:Arial, Helvetica, sans-serif">Arial</option>
+                        <option value="2" style="font-family:'Courier New', Courier, monospace">Courier</option>
+                </select>
+
+                 <select type="text" id="" class="icon-align" onchange="alterFont(this.value)">
+                        <option value="2">Size</option>
+                        <option value="2">10 pt</option>
+                        <option value="3">12 pt</option>
+                        <option value="4">14 pt</option>
+                        <option value="6">16 pt</option>
+                        <option value="7">18 pt</option>
+                    </select>
+                    
+                    <select type="text" class="icon-align" onchange="estiloTitulo(this.value)">
+                        <option style="font-size:16px;" value="4">Titulo 3</option>
+                        <option style="font-size:18px;" value="6">Titulo 2</option>
+                        <option style="font-size:20px;" value="7">Titulo 1</option>
+                    </select>
+                
+
+            </section>
+            
+
+        <div id="content">
+            <form id="form1" name="form1" method="post" action="">
+                <div class="text-center padding-text-icon">
+                    <a onclick="Undo();" href="#"><i id="icon-hover" class="icon-align fas fa-undo"></i></a>
+                    <a onclick="Redo();" href="#"><i id="icon-hover" class="icon-align fas fa-redo"></i></a>
+                    <a title="Alinear a la izquierda" onclick="AlignLeft();" href="#"><i id="icon-hover" class="icon-align fas fa-align-left"></i></a>
+                    <a title="Centrar horizontalmente"onclick="AlignCenter();" href="#"><i id="icon-hover" class="icon-align fas fa-align-center"></i></a>
+                    <a title="Alinear a la derecha" onclick="AlignRight();" href="#"><i id="icon-hover" class="icon-align fas fa-align-right"></i></a>
+                    <a title="Justificar" onclick="Justify();" href="#"><i id="icon-hover" class="icon-align fa fa-align-justify"></i></a>
+                    <a title="Remover formato" onclick="Unformat();" href="#"><i id="icon-hover" class="icon-align fa fa-remove-format"></i></a>
+                    <a title="Texto en negrita" onclick="Bold();" href="#"><i id="icon-hover" class="icon-align fas fa-bold"></i></a>
+                    <a title="Texto en cursiva"onclick="Italic();" href="#"><i id="icon-hover" class="icon-align fas fa-italic"></i></a>
+                    <a title="Subrayar" onclick="UnderLine();" href="#"><i id="icon-hover" class="icon-align fas fa-underline"></i></a>
+                    <a title="Tachar texto" onclick="StrikeThrough();" href="#"><i id="icon-hover" class="icon-align fas fa-strikethrough"></i></a>
+                    <a id="colorButtonFont" style="text-decoration: none;" class="fas fa-paint-brush"> <input id="colorFont" type="color" onchange="ChangeColorFont();"> </a>
+                    <a id="colorButtonFontBg" style="text-decoration: none;" class="fas fa-fill-drip"> <input id="colorFontBg" type="color" value="#FFFFFF" onchange="ChangeFontBackgroundColor();"> </a>
+                    <a title="Cortar"onclick="Cut();" href="#"><i id="icon-hover" class="icon-align fas fa-cut"></i></a>
+                    <a title="Copiar"onclick="Copy();" href="#"><i id="icon-hover" class="icon-align fas fa-copy"></i></a>
+                    <a title="Pegar" onclick="Paste();" href="#"><i id="icon-hover" class="icon-align fas fa-paste"></i></a>
+                    <a title="Alternar lista con viñetas"onclick="insertUnordered();" href="#"><i id="icon-hover" class="icon-align fas fa-list-ul"></i></a>
+                    <a title="Alternar lista numerada" onclick="insertOrdered();" href="#"><i id="icon-hover" class="icon-align fas fa-list-ol"></i></a>
+                    <a title="Insertar tabla"href="#"><i id="icon-hover" class="icon-table icon-align fas fa-table"></i></a>
+                    <a title="Insertar imagen"onclick="insertImage()" href="#"><i id="icon-hover" class="icon-table icon-align far fa-images"></i></a>
+                    <a title="Insertar video"onclick="InsertVideo()" href="#"><i id="icon-hover" class="icon-table icon-align fab fa-youtube"></i></a>
+                    <a title="Nuevo documento" onclick="NewDoc();" href="#" id=""><i id="icon-hover" class="icon-align fas fa-plus"></i></a>
+                    <a title="Guardar" onclick="DataCapture();" href="#" id=""><i id="icon-hover" class="icon-align fas fa-save"></i></a>
+                    <a onclick="DownloadFile();" href="#" id=""><i id="icon-hover" class="icon-align fas fa-file-download"></i></a>
+                    <a onclick="UploadFile();" href="#" id=""><i id="icon-hover" class="icon-align fas fa-file-upload"></i></a>
+                    <a title="Crear hipervinculo" onclick="Link();" href="#" id=""><i id="icon-hover" class="icon-align fas fa-link"></i></a>
+                    <a title="Quitar hipervinculo" onclick="unLink();" href="#" id=""><i id="icon-hover" class="icon-align fas fa-unlink"></i></a>
+                    <a title="Ingresar html" onclick="inHTML()" href="#"><i id="icon-hover" class="icon-align fas fa-code"></i></a>
+                    <a title="Visualizar texto en html" id="ver" onclick="htmlOEditor(event)" value="html" href="#"><i id="icon-hover" class="icon-align far fa-eye"></i></a>
+                    
+                </div>
+                 </form>
+        </div>
+        <br>
+        <div id="content2">
+            <iframe class="center" id="edit" contenteditable="true" width="100%" height="300" style=" border:1px solid #000;"></iframe>
+            <div id="ht" style="width:100%; height:300px; overflow:auto; border:1px solid #000; display:none"></div>
+        
+        </div>
+
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
